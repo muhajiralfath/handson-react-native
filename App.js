@@ -1,7 +1,4 @@
-import { StyleSheet, View, Text } from "react-native";
-
-import LearnFlexBox from "./src/components/LearnFlexBox";
-import { StatusBar } from "expo-status-bar";
+import { StyleSheet, View, Text, StatusBar } from "react-native";
 
 export default function App() {
     return (
@@ -59,24 +56,22 @@ export default function App() {
 
 const styles = StyleSheet.create({
     header: {
-        flex: 2,
+        flex: 1,
         backgroundColor: "yellow",
         alignItems: "center",
         justifyContent: "center",
     },
     container: {
-        padding: 30,
         flex: 2,
         flexDirection: "column",
         alignItems: "center",
         flexWrap: "wrap",
-        alignContent: "flex-end",
+        alignContent: "center",
     },
     box: {
         width: 100,
         height: 100,
-        marginHorizontal: 3,
-        marginBottom: 3,
+        margin: 3,
     },
     footer: {
         flex: 1,
