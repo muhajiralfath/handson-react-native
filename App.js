@@ -12,8 +12,8 @@ export default function App() {
     return (
         <>
             <View style={[styles.header]}>
-                {/* <ProductSectionList /> */}
-                <ProductForm />
+                <ProductSectionList />
+                {/* <ProductForm /> */}
             </View>
         </>
     );

@@ -7,8 +7,9 @@ import {
     View,
 } from "react-native";
 import { useState } from "react";
+import ProductForm from "./ProductForm";
 
-const products = [
+const initialProducts = [
     {
         category: "Makanan",
         data: [
@@ -53,6 +54,24 @@ const products = [
 export default function ProductSectionList() {
     const [showAddProduct, setShowAddProduct] = useState(false);
     const [category, setCategory] = useState("Makanan");
+    const [products, setProducts] = useState(initialProducts);
+
+    const handleAddProduct = (newProduct) => {
+        const updatedProducts = [...products];
+        const categoryIndex = updatedProducts.findIndex(
+            (cat) => cat.category === newProduct.category
+        );
+
+        if (categoryIndex !== -1) {
+            updatedProducts[categoryIndex].data.push(...newProduct.data);
+        } else {
+            updatedProducts.push(newProduct);
+        }
+
+        setProducts(updatedProducts);
+        setShowAddProduct(false);
+    };
+
     const filteredProduct = products.filter(
         (product) => product.category === category
     );
@@ -65,15 +84,10 @@ export default function ProductSectionList() {
     return (
         <View style={styles.container}>
             {showAddProduct ? (
-                <View
-                    style={{ justifyContent: "center", alignItems: "center" }}
-                >
-                    <Text>Ini Form Product</Text>
-                    <Button
-                        title="List Product"
-                        onPress={() => setShowAddProduct(false)}
-                    />
-                </View>
+                <ProductForm
+                    onCancel={() => setShowAddProduct(false)}
+                    onAddProduct={handleAddProduct}
+                />
             ) : (
                 <View>
                     <Button
@@ -142,7 +156,7 @@ const styles = StyleSheet.create({
         flex: 1,
     },
     card: {
-        backgroundColor: "#fff",
+        backgroundColor: "white",
         padding: 16,
         margin: 8,
         borderRadius: 8,
@@ -153,6 +167,7 @@ const styles = StyleSheet.create({
         },
         shadowOpacity: 0.2,
         shadowRadius: 4,
+        elevation: 5,
     },
     headerSection: {
         flexDirection: "row",
