@@ -3,15 +3,14 @@ import Greetings from "./src/screens/Greetings";
 import Card from "./src/components/Card";
 import FlashSale from "./src/screens/FlashSale";
 import Counter from "./src/screens/Counter";
+import ExampleList from "./src/components/ExampleList";
+import FlatListExample from "./src/components/FlatListExample";
 
 export default function App() {
     return (
         <>
             <View style={[styles.header]}>
-                {/* <Greetings /> */}
-                {/* <Card /> */}
-                {/* <FlashSale /> */}
-                <Counter />
+                <FlatListExample />
             </View>
         </>
     );
@@ -20,7 +19,7 @@ export default function App() {
 const styles = StyleSheet.create({
     header: {
         flex: 1,
-        justifyContent: "center",
-        alignItems: "center",
+        // justifyContent: "center",
+        // alignItems: "center",
     },
 });
