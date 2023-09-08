@@ -1,12 +1,5 @@
 import { StyleSheet, View, Text, StatusBar } from "react-native";
-import Greetings from "./src/screens/Greetings";
-import Card from "./src/components/Card";
-import FlashSale from "./src/screens/FlashSale";
-import Counter from "./src/screens/Counter";
-import ExampleList from "./src/components/ExampleList";
-import FlatListExample from "./src/components/FlatListExample";
 import ProductSectionList from "./src/screens/ProductSectionList";
-import ProductForm from "./src/screens/ProductForm";
 
 export default function App() {
     return (
